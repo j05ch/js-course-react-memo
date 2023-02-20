@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import ChildComponent from "./ChildComponent";
 
 function App() {
   const [state, setState] = useState(0);
 
-  function showSomeStuff() {
+  const showSomeStuff = useCallback(() => {
     setState((prevState) => prevState + 1);
     console.log("Hello!");
-  }
+  }, []);
 
   useEffect(() => {
     showSomeStuff();
